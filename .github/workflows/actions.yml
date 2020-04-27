@@ -2,7 +2,7 @@ name: Covid
 
 on:
   schedule:
-    - cron:  '0 */3 * * *'
+    - cron:  '0 */1 * * *'
     
 jobs:
   update:
@@ -25,21 +25,6 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git commit --allow-empty -m "Auto-update Covid-19 Data" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        force: true
-  deploy:
-    needs: update
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '8.x'
-    - run: npm install -g data-cli
-    - run: data --version
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
