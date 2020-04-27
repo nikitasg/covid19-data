@@ -3,7 +3,7 @@ name: Covid
 on:
   schedule:
     - cron:  '0 */1 * * *'
-    
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git commit --allow-empty -m "Auto-update Covid-19 Data" -a
+        git commit --allow-empty -m "Auto-update 2 Covid-19 Data" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
