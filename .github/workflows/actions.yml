@@ -1,8 +1,8 @@
 name: Covid
 
 on:
-  schedule:
-    - cron:  '0 */24 * * *'
+  watch:
+       types: [started]
 
 jobs:
   update:
